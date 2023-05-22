@@ -3,9 +3,11 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
-using WPFCustomMessageBox;
+using WPFCustomMessageBoxAdv;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace CustomMessageBoxDemo
 {
@@ -45,13 +47,13 @@ namespace CustomMessageBoxDemo
 
         private void button_MessageWithCaptionAndButton_Click(object sender, RoutedEventArgs e)
         {
-            var result = MessageBox.Show("Hello World!", "Hello World the title.", MessageBoxButton.OKCancel);
+            var result = MessageBox.Show("Hello World!", "Hello World the title.", MessageBoxButtons.OKCancel);
             Debug.WriteLine(result.ToString());
         }
 
         private void button_MessageWithCaptionAndButtonNew_Click(object sender, RoutedEventArgs e)
         {
-            var result = CustomMessageBox.Show("Hello World!", "Hello World the title.", MessageBoxButton.OKCancel);
+            var result = CustomMessageBox.Show("Hello World!", "Hello World the title.", MessageBoxButtons.OKCancel);
             Debug.WriteLine(result.ToString());
         }
 
@@ -60,14 +62,14 @@ namespace CustomMessageBoxDemo
             var result = MessageBox.Show(
                 "Are you sure you want to eject the nuclear fuel rods?",
                 "Confirm Fuel Ejection",
-                MessageBoxButton.OKCancel,
-                MessageBoxImage.Exclamation);
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Exclamation);
             Debug.WriteLine(result.ToString());
         }
 
         private void button_MessageWithCaptionButtonImageNew_Click(object sender, RoutedEventArgs e)
         {
-            var result = CustomMessageBox.Show("This is a message.", "This is a caption", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
+            var result = CustomMessageBox.Show("This is a message.", "This is a caption", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
             Debug.WriteLine(result.ToString());
         }
 
@@ -85,8 +87,8 @@ namespace CustomMessageBoxDemo
                 Width = 900,
                 MinButtonWidth = 40,
                 YesButtonWidth = 300,
-                Buttons = MessageBoxButton.YesNo,
-                CustomImage = shield
+                Buttons = MessageBoxButtons.YesNo,
+                CustomIcon = shield
             };
             var result = msgBox.ShowDialog();
 
@@ -100,7 +102,7 @@ namespace CustomMessageBoxDemo
             {
                 Message = $"This message box is open since {(int)stopwatch.Elapsed.TotalSeconds}s",
                 Caption = $"Open since {(int)stopwatch.Elapsed.TotalSeconds}s",
-                Buttons = MessageBoxButton.OK
+                Buttons = MessageBoxButtons.OK
             };
             var task = msgBox.Show();
 
@@ -127,7 +129,7 @@ namespace CustomMessageBoxDemo
                 "Evan Wondrasek",
                 "Don't Save",
                 "Cancel",
-                MessageBoxImage.Exclamation);
+                MessageBoxIcon.Exclamation);
 
             Debug.WriteLine(result.ToString());
         }

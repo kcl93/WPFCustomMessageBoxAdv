@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace WPFCustomMessageBox
+namespace WPFCustomMessageBoxAdv
 {
     using System.Drawing;
     using System.Windows;

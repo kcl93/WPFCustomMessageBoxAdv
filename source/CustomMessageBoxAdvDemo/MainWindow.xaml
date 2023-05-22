@@ -11,13 +11,13 @@
 
         <Button Content="Message + Caption + Button" Height="23" HorizontalAlignment="Left" Margin="12,129,0,0" Name="button_MessageWithCaptionAndButton" VerticalAlignment="Top" Width="Auto" Click="button_MessageWithCaptionAndButton_Click" />
         <Button Content="Message + Caption + Button (new)" Height="23" HorizontalAlignment="Left" Margin="271,129,0,0" Name="button_MessageWithCaptionAndButtonNew" VerticalAlignment="Top" Width="Auto" Click="button_MessageWithCaptionAndButtonNew_Click" />
-        <Button Content="Message + Caption + Button + Image" Height="23" HorizontalAlignment="Left" Margin="12,158,0,0" Name="button_MessageWithCaptionButtonImage" VerticalAlignment="Top" Width="Auto" Click="button_MessageWithCaptionButtonImage_Click" />
-        <Button Content="Message + Caption + Button + Image(new)" Height="23" HorizontalAlignment="Left" Margin="271,158,0,0" Name="button_MessageWithCaptionButtonImageNew" VerticalAlignment="Top" Width="Auto" Click="button_MessageWithCaptionButtonImageNew_Click" />
+        <Button Content="Message + Caption + Button + Icon" Height="23" HorizontalAlignment="Left" Margin="12,158,0,0" Name="button_MessageWithCaptionButtonImage" VerticalAlignment="Top" Width="Auto" Click="button_MessageWithCaptionButtonImage_Click" />
+        <Button Content="Message + Caption + Button + Icon(new)" Height="23" HorizontalAlignment="Left" Margin="271,158,0,0" Name="button_MessageWithCaptionButtonImageNew" VerticalAlignment="Top" Width="Auto" Click="button_MessageWithCaptionButtonImageNew_Click" />
         
         <TextBlock Height="33" HorizontalAlignment="Left" Margin="16,29,0,0" Name="textBlock1" FontSize="24" VerticalAlignment="Top" Width="122">Standard</TextBlock>
         <TextBlock FontSize="24" HorizontalAlignment="Left" Margin="271,29,0,0" VerticalAlignment="Top">Custom Version</TextBlock>
         <Button Content="Custom Text" Height="23" HorizontalAlignment="Left" Margin="271,214,0,0" Name="button1" VerticalAlignment="Top" Width="Auto" Click="button1_Click" />
-        <Button Content="Message + Caption + Button + CustomImage(new)" Height="23" HorizontalAlignment="Left" Margin="271,186,0,0" x:Name="button_MessageWithCaptionButtonCustomImageNew" VerticalAlignment="Top" Width="Auto" Click="button_MessageWithCaptionButtonCustomImageNew_Click" />
+        <Button Content="Message + Caption + Button + CustomIcon(new)" Height="23" HorizontalAlignment="Left" Margin="271,186,0,0" x:Name="button_MessageWithCaptionButtonCustomImageNew" VerticalAlignment="Top" Width="Auto" Click="button_MessageWithCaptionButtonCustomImageNew_Click" />
         <Button Content="Self updating message" Height="23" HorizontalAlignment="Left" Margin="271,242,0,0" x:Name="button_SelfUpdatingMessage" VerticalAlignment="Top" Width="Auto" Click="button_SelfUpdatingMessage_Click" />
     </Grid>
 </Window>

@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+	<PropertyGroup>
+		<TargetFrameworks>net461</TargetFrameworks>
+		<UseWPF>true</UseWPF>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+	</PropertyGroup>
+	<PropertyGroup>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Description>A WPF clone of the native Windows/.NET MessageBox with many extra features</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Copyright>WPFCustomMessageBoxAdv contributors</Copyright>
+		<PackageProjectUrl>https://github.com/kcl93/WPFCustomMessageBoxAdvAdv</PackageProjectUrl>
+		<PackageTags>wpf messagebox</PackageTags>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/kcl93/WPFCustomMessageBoxAdvAdv</RepositoryUrl>
+		<SignAssembly>False</SignAssembly>
+		<Version>1.0.0</Version>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net472|AnyCPU'">
+	  <DebugType>embedded</DebugType>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net472|AnyCPU'">
+	  <DebugType>embedded</DebugType>
+	</PropertyGroup>
+	<ItemGroup>
+	  <Reference Include="System.Windows.Forms" />
+	  <Reference Include="System.Windows.Presentation" />
+	</ItemGroup>
+</Project>

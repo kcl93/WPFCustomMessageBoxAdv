@@ -1,23 +1,25 @@
 ﻿using System;
-using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Input;
 
-namespace WPFCustomMessageBox
+namespace WPFCustomMessageBoxAdv
 {
     internal class ButtonClickCommand : ICommand
     {
+        #pragma warning disable CS0067 // The event is never used
         public event EventHandler CanExecuteChanged;
+        #pragma warning restore CS0067
 
-        public Action<MessageBoxResult> Action { get; set; }
+        public Action<DialogResult> Action { get; set; }
 
-        public MessageBoxResult Result { get; set; } = MessageBoxResult.None;
+        public DialogResult Result { get; set; } = DialogResult.None;
 
         public ButtonClickCommand()
         {
 
         }
 
-        public ButtonClickCommand(Action<MessageBoxResult> action, MessageBoxResult result)
+        public ButtonClickCommand(Action<DialogResult> action, DialogResult result)
         {
             this.Action = action;
             this.Result = result;

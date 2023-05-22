@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32802.440
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFCustomMessageBox", "WPFCustomMessageBox\WPFCustomMessageBox.csproj", "{ED02D418-7C0E-4E6C-99A9-BE4357122AE7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomMessageBoxAdv Demo", "CustomMessageBoxAdvDemo\CustomMessageBoxAdv Demo.csproj", "{BEB8F894-9C79-4D30-8061-C5570C1B159D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomMessageBox Demo", "CustomMessageBoxDemo\CustomMessageBox Demo.csproj", "{BEB8F894-9C79-4D30-8061-C5570C1B159D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFCustomMessageBoxAdv", "WPFCustomMessageBoxAdv\WPFCustomMessageBoxAdv.csproj", "{F86EF9EC-C1B6-4C34-9CDB-6936F0AC9075}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ED02D418-7C0E-4E6C-99A9-BE4357122AE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ED02D418-7C0E-4E6C-99A9-BE4357122AE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ED02D418-7C0E-4E6C-99A9-BE4357122AE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ED02D418-7C0E-4E6C-99A9-BE4357122AE7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BEB8F894-9C79-4D30-8061-C5570C1B159D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BEB8F894-9C79-4D30-8061-C5570C1B159D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEB8F894-9C79-4D30-8061-C5570C1B159D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEB8F894-9C79-4D30-8061-C5570C1B159D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F86EF9EC-C1B6-4C34-9CDB-6936F0AC9075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F86EF9EC-C1B6-4C34-9CDB-6936F0AC9075}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F86EF9EC-C1B6-4C34-9CDB-6936F0AC9075}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F86EF9EC-C1B6-4C34-9CDB-6936F0AC9075}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

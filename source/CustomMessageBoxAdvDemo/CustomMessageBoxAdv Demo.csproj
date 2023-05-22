@@ -30,6 +30,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -86,9 +87,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WPFCustomMessageBox\WPFCustomMessageBox.csproj">
-      <Project>{ED02D418-7C0E-4E6C-99A9-BE4357122AE7}</Project>
-      <Name>WPFCustomMessageBox</Name>
+    <ProjectReference Include="..\WPFCustomMessageBoxAdv\WPFCustomMessageBoxAdv.csproj">
+      <Project>{f86ef9ec-c1b6-4c34-9cdb-6936f0ac9075}</Project>
+      <Name>WPFCustomMessageBoxAdv</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

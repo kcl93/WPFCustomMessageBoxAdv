@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Media;
 
-namespace WPFCustomMessageBox
+namespace WPFCustomMessageBoxAdv
 {
     internal class CustomMessageBoxViewModel : INotifyPropertyChanged
     {
@@ -82,6 +82,39 @@ namespace WPFCustomMessageBox
         }
         private string okButtonCaption = "_OK";
 
+        public string AbortButtonCaption
+        {
+            get => this.abortButtonCaption;
+            set
+            {
+                this.abortButtonCaption = value;
+                this.OnPropertyChanged(nameof(this.AbortButtonCaption));
+            }
+        }
+        private string abortButtonCaption = "_Abort";
+
+        public string RetryButtonCaption
+        {
+            get => this.retryButtonCaption;
+            set
+            {
+                this.retryButtonCaption = value;
+                this.OnPropertyChanged(nameof(this.RetryButtonCaption));
+            }
+        }
+        private string retryButtonCaption = "_Retry";
+
+        public string IgnoreButtonCaption
+        {
+            get => this.ignoreButtonCaption;
+            set
+            {
+                this.ignoreButtonCaption = value;
+                this.OnPropertyChanged(nameof(this.IgnoreButtonCaption));
+            }
+        }
+        private string ignoreButtonCaption = "_Retry";
+
         #endregion
 
         #region Fixed properties
@@ -94,9 +127,9 @@ namespace WPFCustomMessageBox
 
         public double MinHeight { get; set; } = 155;
 
-        public ImageSource CustomImage { get; set; }
+        public ImageSource CustomIcon { get; set; }
 
-        public Visibility ImageVisibility => (this.CustomImage is null) ? Visibility.Collapsed : Visibility.Visible;
+        public Visibility ImageVisibility => (this.CustomIcon is null) ? Visibility.Collapsed : Visibility.Visible;
 
         public double CancelButtonMinWidth { get; set; } = ButtonMinWidth;
 
@@ -114,6 +147,18 @@ namespace WPFCustomMessageBox
 
         public double OkButtonMaxWidth { get; set; } = ButtonMaxWidth;
 
+        public double AbortButtonMinWidth { get; set; } = ButtonMinWidth;
+
+        public double AbortButtonMaxWidth { get; set; } = ButtonMaxWidth;
+
+        public double RetryButtonMinWidth { get; set; } = ButtonMinWidth;
+
+        public double RetryButtonMaxWidth { get; set; } = ButtonMaxWidth;
+
+        public double IgnoreButtonMinWidth { get; set; } = ButtonMinWidth;
+
+        public double IgnoreButtonMaxWidth { get; set; } = ButtonMaxWidth;
+
         public Visibility CancelButtonVisibility { get; set; } = Visibility.Collapsed;
 
         public Visibility NoButtonVisibility { get; set; } = Visibility.Collapsed;
@@ -122,6 +167,12 @@ namespace WPFCustomMessageBox
 
         public Visibility OkButtonVisibility { get; set; } = Visibility.Collapsed;
 
+        public Visibility AbortButtonVisibility { get; set; } = Visibility.Collapsed;
+
+        public Visibility RetryButtonVisibility { get; set; } = Visibility.Collapsed;
+
+        public Visibility IgnoreButtonVisibility { get; set; } = Visibility.Collapsed;
+
         public ButtonClickCommand CancelButtonClick { get; set; }
 
         public ButtonClickCommand NoButtonClick { get; set; }
@@ -129,6 +180,12 @@ namespace WPFCustomMessageBox
         public ButtonClickCommand YesButtonClick { get; set; }
 
         public ButtonClickCommand OkButtonClick { get; set; }
+
+        public ButtonClickCommand AbortButtonClick { get; set; }
+
+        public ButtonClickCommand RetryButtonClick { get; set; }
+
+        public ButtonClickCommand IgnoreButtonClick { get; set; }
 
         #endregion
 

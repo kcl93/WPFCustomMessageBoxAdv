@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace WPFCustomMessageBox
+namespace WPFCustomMessageBoxAdv
 {
     internal partial class CustomMessageBoxView : Window
     {

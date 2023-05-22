@@ -4,9 +4,10 @@ using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Media;
 
-namespace WPFCustomMessageBox
+namespace WPFCustomMessageBoxAdv
 {
     /// <summary>
     /// Model that can be used to configure and the show message boxes
@@ -180,6 +181,45 @@ namespace WPFCustomMessageBox
         }
 
         /// <summary>
+        /// Abort button width (double.NaN for 'Auto')
+        /// </summary>
+        public double AbortButtonWidth
+        {
+            get => (this.ViewModel.AbortButtonMinWidth == this.ViewModel.AbortButtonMaxWidth) ? this.ViewModel.AbortButtonMinWidth : double.NaN;
+            set
+            {
+                this.ViewModel.AbortButtonMaxWidth = Math.Min(Math.Max(value, ButtonMinWidth), ButtonMaxWidth);
+                this.ViewModel.AbortButtonMinWidth = this.ViewModel.AbortButtonMaxWidth;
+            }
+        }
+
+        /// <summary>
+        /// Retry button width (double.NaN for 'Auto')
+        /// </summary>
+        public double RetryButtonWidth
+        {
+            get => (this.ViewModel.RetryButtonMinWidth == this.ViewModel.RetryButtonMaxWidth) ? this.ViewModel.RetryButtonMinWidth : double.NaN;
+            set
+            {
+                this.ViewModel.RetryButtonMaxWidth = Math.Min(Math.Max(value, ButtonMinWidth), ButtonMaxWidth);
+                this.ViewModel.RetryButtonMinWidth = this.ViewModel.RetryButtonMaxWidth;
+            }
+        }
+
+        /// <summary>
+        /// Ignore button width (double.NaN for 'Auto')
+        /// </summary>
+        public double IgnoreButtonWidth
+        {
+            get => (this.ViewModel.IgnoreButtonMinWidth == this.ViewModel.IgnoreButtonMaxWidth) ? this.ViewModel.IgnoreButtonMinWidth : double.NaN;
+            set
+            {
+                this.ViewModel.IgnoreButtonMaxWidth = Math.Min(Math.Max(value, ButtonMinWidth), ButtonMaxWidth);
+                this.ViewModel.IgnoreButtonMinWidth = this.ViewModel.IgnoreButtonMaxWidth;
+            }
+        }
+
+        /// <summary>
         /// Owner window
         /// </summary>
         public Window Owner { get; set; }
@@ -205,19 +245,19 @@ namespace WPFCustomMessageBox
         /// <summary>
         /// Buttons to show
         /// </summary>
-        public MessageBoxButton Buttons { get; set; } = MessageBoxButton.OK;
+        public MessageBoxButtons Buttons { get; set; } = MessageBoxButtons.OK;
 
         /// <summary>
-        /// Image that should be shown
+        /// Icon that should be shown
         /// </summary>
-        public MessageBoxImage Image { get; set; } = MessageBoxImage.None;
+        public MessageBoxIcon Icon { get; set; } = MessageBoxIcon.None;
 
         /// <summary>
-        /// Custom image that should be shown.
+        /// Custom Icon that should be shown.
         /// Must be 32x32 pixels in size.
-        /// This property overwrites the @Image property if it is not null.
+        /// This property overwrites the @Icon property if it is not null.
         /// </summary>
-        public ImageSource CustomImage { get; set; }
+        public ImageSource CustomIcon { get; set; }
 
         /// <summary>
         /// Caption of the 'Cancel' button
@@ -256,9 +296,36 @@ namespace WPFCustomMessageBox
         }
 
         /// <summary>
+        /// Caption of the 'Abort' button
+        /// </summary>
+        public string AbortButtonCaption
+        {
+            get => this.ViewModel.AbortButtonCaption.TryRemoveKeyboardAccellerator();
+            set => this.ViewModel.AbortButtonCaption = value.TryAddKeyboardAccellerator();
+        }
+
+        /// <summary>
+        /// Caption of the 'Retry' button
+        /// </summary>
+        public string RetryButtonCaption
+        {
+            get => this.ViewModel.RetryButtonCaption.TryRemoveKeyboardAccellerator();
+            set => this.ViewModel.RetryButtonCaption = value.TryAddKeyboardAccellerator();
+        }
+
+        /// <summary>
+        /// Caption of the 'Retry' button
+        /// </summary>
+        public string IgnoreButtonCaption
+        {
+            get => this.ViewModel.RetryButtonCaption.TryRemoveKeyboardAccellerator();
+            set => this.ViewModel.RetryButtonCaption = value.TryAddKeyboardAccellerator();
+        }
+
+        /// <summary>
         /// Result of the MessageBox
         /// </summary>
-        public MessageBoxResult Result { get; private set; } = MessageBoxResult.None;
+        public DialogResult Result { get; private set; } = DialogResult.None;
 
         private event Action RequestClosingEvent;
 
@@ -266,13 +333,13 @@ namespace WPFCustomMessageBox
 
         private CustomMessageBoxViewModel ViewModel { get; }
 
-        private static Dictionary<MessageBoxImage, Icon> IconLookup { get; } = new Dictionary<MessageBoxImage, Icon>()
+        private static Dictionary<MessageBoxIcon, Icon> IconLookup { get; } = new Dictionary<MessageBoxIcon, Icon>()
         {
-            { MessageBoxImage.None, null },
-            { MessageBoxImage.Error, SystemIcons.Hand },                // Hand, Stop and Error share the same value '16'
-            { MessageBoxImage.Question, SystemIcons.Question },
-            { MessageBoxImage.Warning, SystemIcons.Warning },           // Exclamation and Warning share the same value '48'
-            { MessageBoxImage.Information, SystemIcons.Information }    // Information and Asterisk share the same value '64'
+            { MessageBoxIcon.None, null },
+            { MessageBoxIcon.Error, SystemIcons.Hand },                // Hand, Stop and Error share the same value '16'
+            { MessageBoxIcon.Question, SystemIcons.Question },
+            { MessageBoxIcon.Warning, SystemIcons.Warning },           // Exclamation and Warning share the same value '48'
+            { MessageBoxIcon.Information, SystemIcons.Information }    // Information and Asterisk share the same value '64'
         };
 
         #endregion
@@ -286,10 +353,13 @@ namespace WPFCustomMessageBox
         {
             this.ViewModel = new CustomMessageBoxViewModel()
             {
-                CancelButtonClick = new ButtonClickCommand(this.SetResult, MessageBoxResult.Cancel),
-                NoButtonClick = new ButtonClickCommand(this.SetResult, MessageBoxResult.No),
-                YesButtonClick = new ButtonClickCommand(this.SetResult, MessageBoxResult.Yes),
-                OkButtonClick = new ButtonClickCommand(this.SetResult, MessageBoxResult.OK)
+                CancelButtonClick = new ButtonClickCommand(this.SetResult, DialogResult.Cancel),
+                NoButtonClick = new ButtonClickCommand(this.SetResult, DialogResult.No),
+                YesButtonClick = new ButtonClickCommand(this.SetResult, DialogResult.Yes),
+                OkButtonClick = new ButtonClickCommand(this.SetResult, DialogResult.OK),
+                AbortButtonClick = new ButtonClickCommand(this.SetResult, DialogResult.Abort),
+                RetryButtonClick = new ButtonClickCommand(this.SetResult, DialogResult.Retry),
+                IgnoreButtonClick = new ButtonClickCommand(this.SetResult, DialogResult.Ignore)
             };
         }
 
@@ -304,7 +374,7 @@ namespace WPFCustomMessageBox
         /// This method is blocking until user input.
         /// </summary>
         /// <returns></returns>
-        public MessageBoxResult ShowDialog()
+        public DialogResult ShowDialog()
         {
             this.ConfigureViewModel();
 
@@ -330,8 +400,8 @@ namespace WPFCustomMessageBox
         /// This method is not blocking.
         /// </summary>
         /// <returns>Task that will complete once the user closes the message box</returns>
-        public Task<MessageBoxResult> Show()
-            => Task.Factory.StartNew<MessageBoxResult>(() => this.ShowDialog());
+        public Task<DialogResult> Show()
+            => Task.Factory.StartNew<DialogResult>(() => this.ShowDialog());
 
         /// <summary>
         /// Closes the current message box if it is still open
@@ -371,26 +441,37 @@ namespace WPFCustomMessageBox
 
         private void ConfigureViewModel()
         {
-            // Set image
-            this.ViewModel.CustomImage = this.CustomImage ?? MessageBoxModel.IconLookup[this.Image]?.ToImageSource();
+            // Set Icon
+            this.ViewModel.CustomIcon = this.CustomIcon ?? MessageBoxModel.IconLookup[this.Icon]?.ToImageSource();
 
             // Set buttons
             switch (this.Buttons)
             {
-                case MessageBoxButton.OKCancel:
+                case MessageBoxButtons.OKCancel:
                     this.ViewModel.OkButtonVisibility = Visibility.Visible;
                     this.ViewModel.CancelButtonVisibility = Visibility.Visible;
                     break;
 
-                case MessageBoxButton.YesNoCancel:
+                case MessageBoxButtons.YesNoCancel:
                     this.ViewModel.CancelButtonVisibility = Visibility.Visible;
                     this.ViewModel.NoButtonVisibility = Visibility.Visible;
                     this.ViewModel.YesButtonVisibility = Visibility.Visible;
                     break;
 
-                case MessageBoxButton.YesNo:
+                case MessageBoxButtons.YesNo:
                     this.ViewModel.NoButtonVisibility = Visibility.Visible;
                     this.ViewModel.YesButtonVisibility = Visibility.Visible;
+                    break;
+
+                case MessageBoxButtons.AbortRetryIgnore:
+                    this.ViewModel.AbortButtonVisibility = Visibility.Visible;
+                    this.ViewModel.RetryButtonVisibility = Visibility.Visible;
+                    this.ViewModel.IgnoreButtonVisibility = Visibility.Visible;
+                    break;
+
+                case MessageBoxButtons.RetryCancel:
+                    this.ViewModel.RetryButtonVisibility = Visibility.Visible;
+                    this.ViewModel.CancelButtonVisibility = Visibility.Visible;
                     break;
 
                 default: //MessageBoxButton.OK
@@ -399,7 +480,7 @@ namespace WPFCustomMessageBox
             }
         }
 
-        private void SetResult(MessageBoxResult result)
+        private void SetResult(DialogResult result)
         {
             this.Result = result;
             this.Close();
