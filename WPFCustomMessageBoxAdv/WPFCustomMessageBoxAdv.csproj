@@ -17,6 +17,8 @@
 		<RepositoryUrl>https://github.com/kcl93/WPFCustomMessageBoxAdvAdv</RepositoryUrl>
 		<SignAssembly>False</SignAssembly>
 		<Version>1.0.0</Version>
+		<Title>WPFCustomMessageBoxAdv</Title>
+		<Authors>Kai Clemens Liebich forked from Evan Wondrasek</Authors>
 	</PropertyGroup>
 	<ItemGroup>
 	  <Reference Include="System.Windows.Forms" />
