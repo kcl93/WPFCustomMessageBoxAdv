@@ -16,6 +16,9 @@ namespace CustomMessageBoxDemo
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
