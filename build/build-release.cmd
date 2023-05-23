@@ -2,14 +2,14 @@
 
 @ECHO OFF
 
-SET msbuild="%ProgramFiles(x86)%\MSBuild\12.0\Bin\msbuild.exe"
+SET msbuild="%ProgramFiles%\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe"
 
 :: delete existing build
-del "..\source\WPFCustomMessageBox\bin\Release\" /q /s
+del "..\source\WPFCustomMessageBoxAdv\bin\Release\" /q /s
 
 IF '%1'=='' (SET configuration=Release) ELSE (SET configuration=%1)
 IF '%2'=='' (SET platform="Any CPU") ELSE (SET platform=%2)
 
-%msbuild% "../source/WPFCustomMessageBox.sln" /t:Rebuild /nologo /property:Platform=%platform% /property:Configuration=%configuration% /property:DebugSymbols=false /property:DebugType=None /property:AllowedReferenceRelatedFileExtensions=- /verbosity:minimal /flp:verbosity=normal;logfile=build-release.log 
+%msbuild% "../source/WPFCustomMessageBoxAdv.sln" /t:Rebuild /nologo /property:Platform=%platform% /property:Configuration=%configuration% /property:DebugSymbols=false /property:DebugType=None /property:AllowedReferenceRelatedFileExtensions=- /verbosity:minimal /flp:verbosity=normal;logfile=build-release.log 
 
 IF NOT ERRORLEVEL 0 EXIT /B %ERRORLEVEL%

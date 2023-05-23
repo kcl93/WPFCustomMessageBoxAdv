@@ -41,7 +41,7 @@ namespace CustomMessageBoxDemo
 
         private void button_MessageWithCaptionNew_Click(object sender, RoutedEventArgs e)
         {
-            var result = CustomMessageBox.Show("Hello world!", "Hello World the title.");
+            var result = CustomMessageBox.Show("Hello world!", "Hello World the title.", MessageBoxButtons.RetryCancel);
             Debug.WriteLine(result.ToString());
         }
 
@@ -85,9 +85,9 @@ namespace CustomMessageBoxDemo
                 Message = "This is a wide message with a windows shield beside it.",
                 Caption = "This is a caption",
                 Width = 900,
-                MinButtonWidth = 40,
-                YesButtonWidth = 300,
-                Buttons = MessageBoxButtons.YesNo,
+                MinButtonWidth = 100,
+                RetryButtonWidth = 300,
+                Buttons = MessageBoxButtons.RetryCancel,
                 CustomIcon = shield
             };
             var result = msgBox.ShowDialog();
@@ -123,7 +123,7 @@ namespace CustomMessageBoxDemo
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            var result = CustomMessageBox.ShowYesNoCancel(
+            var result = CustomMessageBox.ShowAbortRetryIgnore(
                 "You have unsaved changes.",
                 "Unsaved Changes!",
                 "Evan Wondrasek",

@@ -32,6 +32,27 @@
                 </Button>
                 <!-- Cancel button -->
 
+                <!-- Abort button -->
+                <Button Name="AbortButton" MinWidth="{Binding AbortButtonMinWidth}" MaxWidth="{Binding AbortButtonMaxWidth}" Height="26" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding AbortButtonVisibility}"
+                        DockPanel.Dock="Right" Command="{Binding AbortButtonClick}">
+                    <Label Padding="0" Margin="10,0" Content="{Binding AbortButtonCaption}"/>
+                </Button>
+                <!-- Abort button -->
+
+                <!-- Retry button -->
+                <Button Name="RetryButton" MinWidth="{Binding RetryButtonMinWidth}" MaxWidth="{Binding RetryButtonMaxWidth}" Height="26" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding RetryButtonVisibility}"
+                        DockPanel.Dock="Right" Command="{Binding RetryButtonClick}">
+                    <Label Padding="0" Margin="10,0" Content="{Binding RetryButtonCaption}"/>
+                </Button>
+                <!-- Retry button -->
+
+                <!-- Ignore button -->
+                <Button Name="IgnoreButton" MinWidth="{Binding IgnoreButtonMinWidth}" MaxWidth="{Binding IgnoreButtonMaxWidth}" Height="26" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding IgnoreButtonVisibility}"
+                        DockPanel.Dock="Right" Command="{Binding IgnoreButtonClick}">
+                    <Label Padding="0" Margin="10,0" Content="{Binding IgnoreButtonCaption}"/>
+                </Button>
+                <!-- Ignore button -->
+
                 <!-- No button -->
                 <Button Name="NoButton" MinWidth="{Binding NoButtonMinWidth}" MaxWidth="{Binding NoButtonMaxWidth}" Height="26" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding NoButtonVisibility}"
                         DockPanel.Dock="Right" Command="{Binding NoButtonClick}">

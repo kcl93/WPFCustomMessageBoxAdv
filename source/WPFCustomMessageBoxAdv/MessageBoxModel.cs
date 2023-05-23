@@ -79,7 +79,10 @@ namespace WPFCustomMessageBoxAdv
             {
                 if ((this.ViewModel.CancelButtonMaxWidth == this.ViewModel.OkButtonMaxWidth)
                     && (this.ViewModel.NoButtonMaxWidth == this.ViewModel.OkButtonMaxWidth)
-                    && (this.ViewModel.YesButtonMaxWidth == this.ViewModel.OkButtonMaxWidth))
+                    && (this.ViewModel.YesButtonMaxWidth == this.ViewModel.OkButtonMaxWidth)
+                    && (this.ViewModel.AbortButtonMaxWidth == this.ViewModel.OkButtonMaxWidth)
+                    && (this.ViewModel.RetryButtonMaxWidth == this.ViewModel.OkButtonMaxWidth)
+                    && (this.ViewModel.IgnoreButtonMaxWidth == this.ViewModel.OkButtonMaxWidth))
                 {
                     return this.ViewModel.OkButtonMaxWidth;
                 }
@@ -95,13 +98,19 @@ namespace WPFCustomMessageBoxAdv
                 this.ViewModel.NoButtonMinWidth = Math.Min(this.ViewModel.NoButtonMinWidth, this.ViewModel.OkButtonMaxWidth);
                 this.ViewModel.YesButtonMaxWidth = this.ViewModel.OkButtonMaxWidth;
                 this.ViewModel.YesButtonMinWidth = Math.Min(this.ViewModel.YesButtonMinWidth, this.ViewModel.OkButtonMaxWidth);
+                this.ViewModel.AbortButtonMaxWidth = this.ViewModel.OkButtonMaxWidth;
+                this.ViewModel.AbortButtonMinWidth = Math.Min(this.ViewModel.AbortButtonMinWidth, this.ViewModel.OkButtonMaxWidth);
+                this.ViewModel.RetryButtonMaxWidth = this.ViewModel.OkButtonMaxWidth;
+                this.ViewModel.RetryButtonMinWidth = Math.Min(this.ViewModel.RetryButtonMinWidth, this.ViewModel.OkButtonMaxWidth);
+                this.ViewModel.IgnoreButtonMaxWidth = this.ViewModel.OkButtonMaxWidth;
+                this.ViewModel.IgnoreButtonMinWidth = Math.Min(this.ViewModel.IgnoreButtonMinWidth, this.ViewModel.OkButtonMaxWidth);
             }
         }
 
         /// <summary>
         /// Minimum button width.
         /// This overwrites custom button widths.
-        /// If both should be changed, please set the min button width first and then change the width of selected buttons.
+        /// If both should be changed, please set the max button width first and then change the width of selected buttons.
         /// </summary>
         public double MinButtonWidth
         {
@@ -109,7 +118,10 @@ namespace WPFCustomMessageBoxAdv
             {
                 if ((this.ViewModel.CancelButtonMinWidth == this.ViewModel.OkButtonMinWidth)
                     && (this.ViewModel.NoButtonMinWidth == this.ViewModel.OkButtonMinWidth)
-                    && (this.ViewModel.YesButtonMinWidth == this.ViewModel.OkButtonMinWidth))
+                    && (this.ViewModel.YesButtonMinWidth == this.ViewModel.OkButtonMinWidth)
+                    && (this.ViewModel.AbortButtonMinWidth == this.ViewModel.OkButtonMinWidth)
+                    && (this.ViewModel.RetryButtonMinWidth == this.ViewModel.OkButtonMinWidth)
+                    && (this.ViewModel.IgnoreButtonMinWidth == this.ViewModel.OkButtonMinWidth))
                 {
                     return this.ViewModel.OkButtonMinWidth;
                 }
@@ -120,11 +132,17 @@ namespace WPFCustomMessageBoxAdv
                 this.ViewModel.OkButtonMinWidth = Math.Min(Math.Max(value, ButtonMinWidth), ButtonMaxWidth);
                 this.ViewModel.OkButtonMaxWidth = Math.Max(this.ViewModel.OkButtonMaxWidth, this.ViewModel.OkButtonMinWidth);
                 this.ViewModel.CancelButtonMinWidth = this.ViewModel.OkButtonMinWidth;
-                this.ViewModel.CancelButtonMaxWidth = Math.Min(this.ViewModel.CancelButtonMaxWidth, this.ViewModel.OkButtonMinWidth);
+                this.ViewModel.CancelButtonMaxWidth = Math.Max(this.ViewModel.CancelButtonMaxWidth, this.ViewModel.OkButtonMinWidth);
                 this.ViewModel.NoButtonMinWidth = this.ViewModel.OkButtonMinWidth;
-                this.ViewModel.NoButtonMaxWidth = Math.Min(this.ViewModel.NoButtonMaxWidth, this.ViewModel.OkButtonMinWidth);
+                this.ViewModel.NoButtonMaxWidth = Math.Max(this.ViewModel.NoButtonMaxWidth, this.ViewModel.OkButtonMinWidth);
                 this.ViewModel.YesButtonMinWidth = this.ViewModel.OkButtonMinWidth;
-                this.ViewModel.YesButtonMaxWidth = Math.Min(this.ViewModel.YesButtonMaxWidth, this.ViewModel.OkButtonMinWidth);
+                this.ViewModel.YesButtonMaxWidth = Math.Max(this.ViewModel.YesButtonMaxWidth, this.ViewModel.OkButtonMinWidth);
+                this.ViewModel.AbortButtonMinWidth = this.ViewModel.OkButtonMinWidth;
+                this.ViewModel.AbortButtonMaxWidth = Math.Max(this.ViewModel.AbortButtonMaxWidth, this.ViewModel.OkButtonMinWidth);
+                this.ViewModel.RetryButtonMinWidth = this.ViewModel.OkButtonMinWidth;
+                this.ViewModel.RetryButtonMaxWidth = Math.Max(this.ViewModel.RetryButtonMaxWidth, this.ViewModel.OkButtonMinWidth);
+                this.ViewModel.IgnoreButtonMinWidth = this.ViewModel.OkButtonMinWidth;
+                this.ViewModel.IgnoreButtonMaxWidth = Math.Max(this.ViewModel.IgnoreButtonMaxWidth, this.ViewModel.OkButtonMinWidth);
             }
         }
 
@@ -314,12 +332,12 @@ namespace WPFCustomMessageBoxAdv
         }
 
         /// <summary>
-        /// Caption of the 'Retry' button
+        /// Caption of the 'Ignore' button
         /// </summary>
         public string IgnoreButtonCaption
         {
-            get => this.ViewModel.RetryButtonCaption.TryRemoveKeyboardAccellerator();
-            set => this.ViewModel.RetryButtonCaption = value.TryAddKeyboardAccellerator();
+            get => this.ViewModel.IgnoreButtonCaption.TryRemoveKeyboardAccellerator();
+            set => this.ViewModel.IgnoreButtonCaption = value.TryAddKeyboardAccellerator();
         }
 
         /// <summary>
