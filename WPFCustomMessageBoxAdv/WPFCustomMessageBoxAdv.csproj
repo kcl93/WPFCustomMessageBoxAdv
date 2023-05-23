@@ -19,7 +19,14 @@
 		<Version>1.0.0</Version>
 		<Title>WPFCustomMessageBoxAdv</Title>
 		<Authors>Kai Clemens Liebich forked from Evan Wondrasek</Authors>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
+	<ItemGroup>
+	  <None Include="..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
 	<ItemGroup>
 	  <Reference Include="System.Windows.Forms" />
 	</ItemGroup>
