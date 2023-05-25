@@ -1,44 +1,42 @@
-WPFCustomMessageBox
+WPFCustomMessageBoxAdv
 =====================
 
-*WPFCustomMessageBox* is a WPF clone of the native Windows/.NET MessageBox with extra features like custom button text.
-
-![WPFCustomMessageBox example screenshot](http://i.stack.imgur.com/AQgEj.png)
+*WPFCustomMessageBoxAdv* is a WPF clone of the native Windows/.NET MessageBox with many extra features.
 
 I created this library because I wanted to use verbs for my MessageBox buttons to [help users better understand the functionality of the buttons](http://ux.stackexchange.com/a/9960/12349) - which isn't possible in the standard Windows MessageBox. With this library, you can offer your users button descriptions like `Save/Don't Save` or `Shutdown Reactor/Eject Spent Fuel Rods` rather than the standard `OK/Cancel` or `Yes/No` (although you can still use those too, if you like).
 
-The WPFCustomMessageBox message boxes return [standard .NET MessageBoxResults](http://msdn.microsoft.com/en-us/library/system.windows.messageboxresult%28v=vs.100%29.aspx).
+The WPFCustomMessageBoxAdv message boxes return [standard .NET DialogResults](https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.dialogresult).
 
 ## Downloading and Installing ##
 
-[WPFCustomMessageBox is available via NuGet](https://www.nuget.org/packages/WPFCustomMessageBox/).
+[WPFCustomMessageBoxAdv is available via NuGet](https://www.nuget.org/packages/WPFCustomMessageBoxAdv/).
 
 ## Usage ##
 
 This documentation is still in progress, so in the meantime you can explore the `CustomMessageBoxDemo` project which should have a variety of demos.
 
-WPFCustomMessageBox uses static methods just like the standard .NET MessageBox, so you can plug-and-play the new library without modifying any code. When you want to add custom text, just use the special methods outlined below.
+WPFCustomMessageBoxAdv uses static methods just like the standard .NET MessageBox, so you can plug-and-play the new library without modifying any code. When you want to add custom text, just use the special methods outlined below.
 
 **Standard .NET Message Box**
 
 
 ```csharp
-MessageBox.Show("Hello World!", "This is the title of the MessageBox", MessageBoxButton.OKCancel);
+MessageBox.Show("Hello World!", "This is the title of the MessageBox", MessageBoxButtons.OKCancel);
 ```
 
-**WPFCustomMessageBox Equivalent**
+**WPFCustomMessageBoxAdv Equivalent**
 
 
 ```csharp
-using WPFCustomMessageBox;
+using WPFCustomMessageBoxAdv;
 
-CustomMessageBox.Show("Hello World!", "This is the title of the MessageBox", MessageBoxButton.OKCancel);
+CustomMessageBox.Show("Hello World!", "This is the title of the MessageBox", MessageBoxButtons.OKCancel);
 ```
 
-**Adding custom button text to WPFCustomMessageBox**
+**Adding custom button text to WPFCustomMessageBoxAdv**
 
 ```csharp
-using WPFCustomMessageBox;
+using WPFCustomMessageBoxAdv;
 
 CustomMessageBox.ShowOKCancel(
     "Are you sure you want to eject the nuclear fuel rods?",
@@ -49,23 +47,32 @@ CustomMessageBox.ShowOKCancel(
 
 **Custom Button Methods**
 
-The WPFCustomMessageBox library provides customizable equivalents of all .NET MessageBox button types:
+The WPFCustomMessageBoxAdv library provides customizable equivalents of all .NET MessageBox button types:
 
 * `CustomMessageBox.Show()` - Standard MessageBox
-* `CustomMessageBox.ShowOK()` - MessageBox with single customizable "OK" button. Returns `MessageBoxResult.OK`.
-* `CustomMessageBox.ShowOKCancel()` - MessageBox with customizable "OK" and "Cancel" buttons. Returns either `MessageBoxResult.OK` or `MessageBoxResult.Cancel`.
-* `CustomMessageBox.ShowYesNo()` - MessageBox with customizable "Yes" and "No" buttons. Returns either `MessageBoxResult.Yes` or `MessageBoxResult.No`.
-* `CustomMessageBox.ShowYesNoCancel()` - MessageBox with customizable "Yes", "No", and "Cancel" buttons. Returns either `MessageBoxResult.Yes`, `MessageBoxResult.No`, or `MessageBoxResult.Cancel`.
+* `CustomMessageBox.ShowOK()` - MessageBox with single customizable "OK" button. Returns `DialogResult.OK`.
+* `CustomMessageBox.ShowOKCancel()` - MessageBox with customizable "OK" and "Cancel" buttons. Returns either `DialogResult.OK` or `DialogResult.Cancel`.
+* `CustomMessageBox.ShowYesNo()` - MessageBox with customizable "Yes" and "No" buttons. Returns either `DialogResult.Yes` or `DialogResult.No`.
+* `CustomMessageBox.ShowYesNoCancel()` - MessageBox with customizable "Yes", "No", and "Cancel" buttons. Returns either `DialogResult.Yes`, `DialogResult.No`, or `DialogResult.Cancel`.
+* `CustomMessageBox.ShowRetryCancel()` - MessageBox with customizable "Retry", and "Cancel" buttons. Returns either `DialogResult.Retry`, `DialogResult.Cancel`.
+* `CustomMessageBox.ShowAbortRetryIgnore()` - MessageBox with customizable "Abort", "Retry", and "Ignore" buttons. Returns either `DialogResult.Abort`, `DialogResult.Retry`, or `DialogResult.Ignore`.
 
-## Todo ##
+**MessageBoxModel**
 
-* i18n support (especially for languages that read right-to-left)
+For maximum customization or live access to the message box while it is open (e.g. to update the displayed text), the class MessageBoModel can be used.
+It allows to updates various widths and heights of UI components, button texts and much more.
+
+**Removed features/changes compared to WPFCustomMessageBoxAdv**
+
+* Removed support for keyboard accelerators
+* System.Windows.Forms.MessageBox is being used for reference instead of System.Windows.MessageBox (more button options available by default)s
+
 
 ## License ##
 
 **The MIT License**
 
-Copyright (c) 2013 Evan Wondrasek / Apricity Software LLC
+Copyright (c) 2023 Kai Clemens Liebich / Evan Wondrasek
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

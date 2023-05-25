@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+	<PropertyGroup>
+		<TargetFrameworks>net461;net472;net48</TargetFrameworks>
+		<UseWPF>true</UseWPF>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<DebugType>embedded</DebugType>
+	</PropertyGroup>
+	<PropertyGroup>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Description>A WPF clone of the native Windows/.NET MessageBox with many extra features</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Copyright>WPFCustomMessageBoxAdv contributors</Copyright>
+		<PackageProjectUrl>https://github.com/kcl93/WPFCustomMessageBoxAdv</PackageProjectUrl>
+		<PackageTags>wpf messagebox</PackageTags>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/kcl93/WPFCustomMessageBoxAdv</RepositoryUrl>
+		<SignAssembly>False</SignAssembly>
+		<Version>1.0.1</Version>
+		<Title>WPFCustomMessageBoxAdv</Title>
+		<Authors>Kai Clemens Liebich forked from Evan Wondrasek</Authors>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
+	</PropertyGroup>
+	<ItemGroup>
+	  <None Include="..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+	<ItemGroup>
+	  <Reference Include="System.Windows.Forms" />
+	</ItemGroup>
+</Project>
