@@ -11,12 +11,12 @@
 		<Description>A WPF clone of the native Windows/.NET MessageBox with many extra features</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<Copyright>WPFCustomMessageBoxAdv contributors</Copyright>
-		<PackageProjectUrl>https://github.com/kcl93/WPFCustomMessageBoxAdvAdv</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/kcl93/WPFCustomMessageBoxAdv</PackageProjectUrl>
 		<PackageTags>wpf messagebox</PackageTags>
 		<RepositoryType>git</RepositoryType>
-		<RepositoryUrl>https://github.com/kcl93/WPFCustomMessageBoxAdvAdv</RepositoryUrl>
+		<RepositoryUrl>https://github.com/kcl93/WPFCustomMessageBoxAdv</RepositoryUrl>
 		<SignAssembly>False</SignAssembly>
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 		<Title>WPFCustomMessageBoxAdv</Title>
 		<Authors>Kai Clemens Liebich forked from Evan Wondrasek</Authors>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
