@@ -7,7 +7,7 @@ WPFCustomMessageBox
 
 I created this library because I wanted to use verbs for my MessageBox buttons to [help users better understand the functionality of the buttons](http://ux.stackexchange.com/a/9960/12349) - which isn't possible in the standard Windows MessageBox. With this library, you can offer your users button descriptions like `Save/Don't Save` or `Shutdown Reactor/Eject Spent Fuel Rods` rather than the standard `OK/Cancel` or `Yes/No` (although you can still use those too, if you like).
 
-The WPFCustomMessageBox message boxes return [standard .NET MessageBoxResults](http://msdn.microsoft.com/en-us/library/system.windows.messageboxresult%28v=vs.100%29.aspx).
+The WPFCustomMessageBox message boxes return [standard .NET DialogResults](http://msdn.microsoft.com/en-us/library/system.windows.DialogResult%28v=vs.100%29.aspx).
 
 ## Downloading and Installing ##
 
@@ -23,7 +23,7 @@ WPFCustomMessageBox uses static methods just like the standard .NET MessageBox, 
 
 
 ```csharp
-MessageBox.Show("Hello World!", "This is the title of the MessageBox", MessageBoxButton.OKCancel);
+MessageBox.Show("Hello World!", "This is the title of the MessageBox", MessageBoxButtons.OKCancel);
 ```
 
 **WPFCustomMessageBox Equivalent**
@@ -32,7 +32,7 @@ MessageBox.Show("Hello World!", "This is the title of the MessageBox", MessageBo
 ```csharp
 using WPFCustomMessageBox;
 
-CustomMessageBox.Show("Hello World!", "This is the title of the MessageBox", MessageBoxButton.OKCancel);
+CustomMessageBox.Show("Hello World!", "This is the title of the MessageBox", MessageBoxButtons.OKCancel);
 ```
 
 **Adding custom button text to WPFCustomMessageBox**
@@ -52,16 +52,22 @@ CustomMessageBox.ShowOKCancel(
 The WPFCustomMessageBox library provides customizable equivalents of all .NET MessageBox button types:
 
 * `CustomMessageBox.Show()` - Standard MessageBox
-* `CustomMessageBox.ShowOK()` - MessageBox with single customizable "OK" button. Returns `MessageBoxResult.OK`.
-* `CustomMessageBox.ShowOKCancel()` - MessageBox with customizable "OK" and "Cancel" buttons. Returns either `MessageBoxResult.OK` or `MessageBoxResult.Cancel`.
-* `CustomMessageBox.ShowYesNo()` - MessageBox with customizable "Yes" and "No" buttons. Returns either `MessageBoxResult.Yes` or `MessageBoxResult.No`.
-* `CustomMessageBox.ShowYesNoCancel()` - MessageBox with customizable "Yes", "No", and "Cancel" buttons. Returns either `MessageBoxResult.Yes`, `MessageBoxResult.No`, or `MessageBoxResult.Cancel`.
-* `CustomMessageBox.ShowRetryCancel()` - MessageBox with customizable "Retry", and "Cancel" buttons. Returns either `MessageBoxResult.Retry`, `MessageBoxResult.Cancel`.
-* `CustomMessageBox.ShowAbortRetryIgnore()` - MessageBox with customizable "Abort", "Retry", and "Ignore" buttons. Returns either `MessageBoxResult.Abort`, `MessageBoxResult.Retry`, or `MessageBoxResult.Ignore`.
+* `CustomMessageBox.ShowOK()` - MessageBox with single customizable "OK" button. Returns `DialogResult.OK`.
+* `CustomMessageBox.ShowOKCancel()` - MessageBox with customizable "OK" and "Cancel" buttons. Returns either `DialogResult.OK` or `DialogResult.Cancel`.
+* `CustomMessageBox.ShowYesNo()` - MessageBox with customizable "Yes" and "No" buttons. Returns either `DialogResult.Yes` or `DialogResult.No`.
+* `CustomMessageBox.ShowYesNoCancel()` - MessageBox with customizable "Yes", "No", and "Cancel" buttons. Returns either `DialogResult.Yes`, `DialogResult.No`, or `DialogResult.Cancel`.
+* `CustomMessageBox.ShowRetryCancel()` - MessageBox with customizable "Retry", and "Cancel" buttons. Returns either `DialogResult.Retry`, `DialogResult.Cancel`.
+* `CustomMessageBox.ShowAbortRetryIgnore()` - MessageBox with customizable "Abort", "Retry", and "Ignore" buttons. Returns either `DialogResult.Abort`, `DialogResult.Retry`, or `DialogResult.Ignore`.
 
 **MessageBoxModel**
 
-If more customization or access to the 
+For maximum customization or live access to the message box while it is open (e.g. to update the displayed text), the class MessageBoModel can be used.
+It allows to updates various widths and heights of UI components, button texts and much more.
+
+**Removed features/changes compared to WpfCustomMessagebox**
+
+* Removed support for keyboard accelerators
+* System.Windows.Forms.MessageBox is being used for reference instead of System.Windows.MessageBox (more button options available by default)s
 
 
 ## License ##
