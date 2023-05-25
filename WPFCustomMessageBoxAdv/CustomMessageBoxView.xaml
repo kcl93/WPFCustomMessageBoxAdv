@@ -23,54 +23,54 @@
             </DockPanel>
         </Grid>
         <Grid Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" MinHeight="49">
-            <DockPanel Margin="5,0">
+            <DockPanel Margin="5,5">
 
                 <!-- Cancel button -->
-                <Button Name="CancelButton" MinWidth="{Binding CancelButtonMinWidth}" MaxWidth="{Binding CancelButtonMaxWidth}" Height="26" Margin="5,0" HorizontalAlignment="Right" Visibility="{Binding CancelButtonVisibility}"
-                        DockPanel.Dock="Right" Command="{Binding CancelButtonClick}">
-                    <Label Padding="0" Margin="10,0" Content="{Binding CancelButtonCaption}"/>
+                <Button Name="CancelButton" MinWidth="{Binding CancelButtonMinWidth}" MaxWidth="{Binding CancelButtonMaxWidth}" MinHeight="{Binding MinButtonHeight}" MaxHeight="{Binding MaxButtonHeight}" Margin="5,0" HorizontalAlignment="Right" Visibility="{Binding CancelButtonVisibility}"
+                        DockPanel.Dock="Right" Command="{Binding CancelButtonClick}" VerticalAlignment="Center" Padding="10,3">
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="{Binding CancelButtonCaption}"/>
                 </Button>
                 <!-- Cancel button -->
 
                 <!-- Abort button -->
-                <Button Name="AbortButton" MinWidth="{Binding AbortButtonMinWidth}" MaxWidth="{Binding AbortButtonMaxWidth}" Height="26" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding AbortButtonVisibility}"
-                        DockPanel.Dock="Right" Command="{Binding AbortButtonClick}">
-                    <Label Padding="0" Margin="10,0" Content="{Binding AbortButtonCaption}"/>
+                <Button Name="AbortButton" MinWidth="{Binding AbortButtonMinWidth}" MaxWidth="{Binding AbortButtonMaxWidth}" MinHeight="{Binding MinButtonHeight}" MaxHeight="{Binding MaxButtonHeight}" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding AbortButtonVisibility}"
+                        DockPanel.Dock="Right" Command="{Binding AbortButtonClick}" VerticalAlignment="Center" Padding="10,3">
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="{Binding AbortButtonCaption}"/>
                 </Button>
                 <!-- Abort button -->
 
                 <!-- Retry button -->
-                <Button Name="RetryButton" MinWidth="{Binding RetryButtonMinWidth}" MaxWidth="{Binding RetryButtonMaxWidth}" Height="26" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding RetryButtonVisibility}"
-                        DockPanel.Dock="Right" Command="{Binding RetryButtonClick}">
-                    <Label Padding="0" Margin="10,0" Content="{Binding RetryButtonCaption}"/>
+                <Button Name="RetryButton" MinWidth="{Binding RetryButtonMinWidth}" MaxWidth="{Binding RetryButtonMaxWidth}" MinHeight="{Binding MinButtonHeight}" MaxHeight="{Binding MaxButtonHeight}" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding RetryButtonVisibility}"
+                        DockPanel.Dock="Right" Command="{Binding RetryButtonClick}" VerticalAlignment="Center" Padding="10,3">
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="{Binding RetryButtonCaption}"/>
                 </Button>
                 <!-- Retry button -->
 
                 <!-- Ignore button -->
-                <Button Name="IgnoreButton" MinWidth="{Binding IgnoreButtonMinWidth}" MaxWidth="{Binding IgnoreButtonMaxWidth}" Height="26" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding IgnoreButtonVisibility}"
-                        DockPanel.Dock="Right" Command="{Binding IgnoreButtonClick}">
-                    <Label Padding="0" Margin="10,0" Content="{Binding IgnoreButtonCaption}"/>
+                <Button Name="IgnoreButton" MinWidth="{Binding IgnoreButtonMinWidth}" MaxWidth="{Binding IgnoreButtonMaxWidth}" MinHeight="{Binding MinButtonHeight}" MaxHeight="{Binding MaxButtonHeight}" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding IgnoreButtonVisibility}"
+                        DockPanel.Dock="Right" Command="{Binding IgnoreButtonClick}" VerticalAlignment="Center" Padding="10,3">
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="{Binding IgnoreButtonCaption}"/>
                 </Button>
                 <!-- Ignore button -->
 
                 <!-- No button -->
-                <Button Name="NoButton" MinWidth="{Binding NoButtonMinWidth}" MaxWidth="{Binding NoButtonMaxWidth}" Height="26" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding NoButtonVisibility}"
-                        DockPanel.Dock="Right" Command="{Binding NoButtonClick}">
-                    <Label Padding="0" Margin="10,0" Content="{Binding NoButtonCaption}"/>
+                <Button Name="NoButton" MinWidth="{Binding NoButtonMinWidth}" MaxWidth="{Binding NoButtonMaxWidth}" MinHeight="{Binding MinButtonHeight}" MaxHeight="{Binding MaxButtonHeight}" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding NoButtonVisibility}"
+                        DockPanel.Dock="Right" Command="{Binding NoButtonClick}" VerticalAlignment="Center" Padding="10,3">
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="{Binding NoButtonCaption}"/>
                 </Button>
                 <!-- No button -->
 
                 <!-- Yes button -->
-                <Button Name="YesButton" MinWidth="{Binding YesButtonMinWidth}" MaxWidth="{Binding YesButtonMaxWidth}" Height="26" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding YesButtonVisibility}"
-                        DockPanel.Dock="Right" Command="{Binding YesButtonClick}">
-                    <Label Padding="0" Margin="10,0" Content="{Binding YesButtonCaption}"/>
+                <Button Name="YesButton" MinWidth="{Binding YesButtonMinWidth}" MaxWidth="{Binding YesButtonMaxWidth}" MinHeight="{Binding MinButtonHeight}" MaxHeight="{Binding MaxButtonHeight}" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding YesButtonVisibility}"
+                        DockPanel.Dock="Right" Command="{Binding YesButtonClick}" VerticalAlignment="Center" Padding="10,3">
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="{Binding YesButtonCaption}"/>
                 </Button>
                 <!-- Yes button -->
 
                 <!-- OK button -->
-                <Button Name="OkButton" MinWidth="{Binding OkButtonMinWidth}" MaxWidth="{Binding OkButtonMaxWidth}" Height="26" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding OkButtonVisibility}"
-                        DockPanel.Dock="Left" Command="{Binding OkButtonClick}">
-                    <Label Padding="0" Margin="10,0" Content="{Binding OkButtonCaption}"/>
+                <Button Name="OkButton" MinWidth="{Binding OkButtonMinWidth}" MaxWidth="{Binding OkButtonMaxWidth}" MinHeight="{Binding MinButtonHeight}" MaxHeight="{Binding MaxButtonHeight}" Margin="35,0,5,0" HorizontalAlignment="Right" Visibility="{Binding OkButtonVisibility}"
+                        DockPanel.Dock="Left" Command="{Binding OkButtonClick}" VerticalAlignment="Center" Padding="10,3">
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="{Binding OkButtonCaption}"/>
                 </Button>
                 <!-- OK button -->
 

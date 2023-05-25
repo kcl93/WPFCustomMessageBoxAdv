@@ -12,6 +12,10 @@ namespace WPFCustomMessageBoxAdv
 
         private static double ButtonMaxWidth => 160;
 
+        private static double ButtonMinHeight => 26;
+
+        private static double ButtonMaxHeight => 80;
+
         #endregion
 
         #region Properties that can be updated while the message box is open
@@ -47,7 +51,7 @@ namespace WPFCustomMessageBoxAdv
                 this.OnPropertyChanged(nameof(this.CancelButtonCaption));
             }
         }
-        private string cancelButtonCaption = "_Cancel";
+        private string cancelButtonCaption = "Cancel";
 
         public string NoButtonCaption
         {
@@ -58,7 +62,7 @@ namespace WPFCustomMessageBoxAdv
                 this.OnPropertyChanged(nameof(this.NoButtonCaption));
             }
         }
-        private string noButtonCaption = "_No";
+        private string noButtonCaption = "No";
 
         public string YesButtonCaption
         {
@@ -69,7 +73,7 @@ namespace WPFCustomMessageBoxAdv
                 this.OnPropertyChanged(nameof(this.YesButtonCaption));
             }
         }
-        private string yesButtonCaption = "_Yes";
+        private string yesButtonCaption = "Yes";
 
         public string OkButtonCaption
         {
@@ -80,7 +84,7 @@ namespace WPFCustomMessageBoxAdv
                 this.OnPropertyChanged(nameof(this.OkButtonCaption));
             }
         }
-        private string okButtonCaption = "_OK";
+        private string okButtonCaption = "OK";
 
         public string AbortButtonCaption
         {
@@ -91,7 +95,7 @@ namespace WPFCustomMessageBoxAdv
                 this.OnPropertyChanged(nameof(this.AbortButtonCaption));
             }
         }
-        private string abortButtonCaption = "_Abort";
+        private string abortButtonCaption = "Abort";
 
         public string RetryButtonCaption
         {
@@ -102,7 +106,7 @@ namespace WPFCustomMessageBoxAdv
                 this.OnPropertyChanged(nameof(this.RetryButtonCaption));
             }
         }
-        private string retryButtonCaption = "_Retry";
+        private string retryButtonCaption = "Retry";
 
         public string IgnoreButtonCaption
         {
@@ -113,13 +117,13 @@ namespace WPFCustomMessageBoxAdv
                 this.OnPropertyChanged(nameof(this.IgnoreButtonCaption));
             }
         }
-        private string ignoreButtonCaption = "_Retry";
+        private string ignoreButtonCaption = "Retry";
 
         #endregion
 
         #region Fixed properties
 
-        public double MaxWidth { get; set; } = 470;
+        public double MaxWidth { get; set; } = 800;
 
         public double MinWidth { get; set; } = 154;
 
@@ -130,6 +134,10 @@ namespace WPFCustomMessageBoxAdv
         public ImageSource CustomIcon { get; set; }
 
         public Visibility ImageVisibility => (this.CustomIcon is null) ? Visibility.Collapsed : Visibility.Visible;
+
+        public double MinButtonHeight { get; set; } = ButtonMinHeight;
+
+        public double MaxButtonHeight { get; set; } = ButtonMaxHeight;
 
         public double CancelButtonMinWidth { get; set; } = ButtonMinWidth;
 

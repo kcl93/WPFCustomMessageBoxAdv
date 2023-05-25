@@ -129,7 +129,7 @@ namespace CustomMessageBoxDemo
             var result = CustomMessageBox.ShowAbortRetryIgnore(
                 "You have unsaved changes.",
                 "Unsaved Changes!",
-                "Evan Wondrasek",
+                "This is a long text that wraps around",
                 "Don't Save",
                 "Cancel",
                 MessageBoxIcon.Exclamation);

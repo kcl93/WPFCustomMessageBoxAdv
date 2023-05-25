@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 	<PropertyGroup>
-		<TargetFrameworks>net461</TargetFrameworks>
+		<TargetFrameworks>net461;net472;net48</TargetFrameworks>
 		<UseWPF>true</UseWPF>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -20,6 +20,7 @@
 		<Title>WPFCustomMessageBoxAdv</Title>
 		<Authors>Kai Clemens Liebich forked from Evan Wondrasek</Authors>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
 	</PropertyGroup>
 	<ItemGroup>
 	  <None Include="..\README.md">

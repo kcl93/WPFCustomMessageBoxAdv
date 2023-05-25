@@ -147,6 +147,24 @@ namespace WPFCustomMessageBoxAdv
         }
 
         /// <summary>
+        /// Minimum button height (default = 26)
+        /// </summary>
+        public double MinButtonHeight
+        {
+            get => this.ViewModel.MinButtonHeight;
+            set => this.ViewModel.MinButtonHeight = value;
+        }
+
+        /// <summary>
+        /// Minimum button height (default = 26)
+        /// </summary>
+        public double MaxButtonHeight
+        {
+            get => this.ViewModel.MaxButtonHeight;
+            set => this.ViewModel.MaxButtonHeight = value;
+        }
+
+        /// <summary>
         /// Cancel button width (double.NaN for 'Auto')
         /// </summary>
         public double CancelButtonWidth
@@ -282,8 +300,8 @@ namespace WPFCustomMessageBoxAdv
         /// </summary>
         public string CancelButtonCaption
         {
-            get => this.ViewModel.CancelButtonCaption.TryRemoveKeyboardAccellerator();
-            set => this.ViewModel.CancelButtonCaption = value.TryAddKeyboardAccellerator();
+            get => this.ViewModel.CancelButtonCaption;
+            set => this.ViewModel.CancelButtonCaption = value;
         }
 
         /// <summary>
@@ -291,8 +309,8 @@ namespace WPFCustomMessageBoxAdv
         /// </summary>
         public string NoButtonCaption
         {
-            get => this.ViewModel.NoButtonCaption.TryRemoveKeyboardAccellerator();
-            set => this.ViewModel.NoButtonCaption = value.TryAddKeyboardAccellerator();
+            get => this.ViewModel.NoButtonCaption;
+            set => this.ViewModel.NoButtonCaption = value;
         }
 
         /// <summary>
@@ -300,8 +318,8 @@ namespace WPFCustomMessageBoxAdv
         /// </summary>
         public string YesButtonCaption
         {
-            get => this.ViewModel.YesButtonCaption.TryRemoveKeyboardAccellerator();
-            set => this.ViewModel.YesButtonCaption = value.TryAddKeyboardAccellerator();
+            get => this.ViewModel.YesButtonCaption;
+            set => this.ViewModel.YesButtonCaption = value;
         }
 
         /// <summary>
@@ -309,8 +327,8 @@ namespace WPFCustomMessageBoxAdv
         /// </summary>
         public string OkButtonCaption
         {
-            get => this.ViewModel.OkButtonCaption.TryRemoveKeyboardAccellerator();
-            set => this.ViewModel.OkButtonCaption = value.TryAddKeyboardAccellerator();
+            get => this.ViewModel.OkButtonCaption;
+            set => this.ViewModel.OkButtonCaption = value;
         }
 
         /// <summary>
@@ -318,8 +336,8 @@ namespace WPFCustomMessageBoxAdv
         /// </summary>
         public string AbortButtonCaption
         {
-            get => this.ViewModel.AbortButtonCaption.TryRemoveKeyboardAccellerator();
-            set => this.ViewModel.AbortButtonCaption = value.TryAddKeyboardAccellerator();
+            get => this.ViewModel.AbortButtonCaption;
+            set => this.ViewModel.AbortButtonCaption = value;
         }
 
         /// <summary>
@@ -327,8 +345,8 @@ namespace WPFCustomMessageBoxAdv
         /// </summary>
         public string RetryButtonCaption
         {
-            get => this.ViewModel.RetryButtonCaption.TryRemoveKeyboardAccellerator();
-            set => this.ViewModel.RetryButtonCaption = value.TryAddKeyboardAccellerator();
+            get => this.ViewModel.RetryButtonCaption;
+            set => this.ViewModel.RetryButtonCaption = value;
         }
 
         /// <summary>
@@ -336,8 +354,8 @@ namespace WPFCustomMessageBoxAdv
         /// </summary>
         public string IgnoreButtonCaption
         {
-            get => this.ViewModel.IgnoreButtonCaption.TryRemoveKeyboardAccellerator();
-            set => this.ViewModel.IgnoreButtonCaption = value.TryAddKeyboardAccellerator();
+            get => this.ViewModel.IgnoreButtonCaption;
+            set => this.ViewModel.IgnoreButtonCaption = value;
         }
 
         /// <summary>

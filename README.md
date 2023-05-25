@@ -1,7 +1,7 @@
 WPFCustomMessageBox
 =====================
 
-*WPFCustomMessageBox* is a WPF clone of the native Windows/.NET MessageBox with extra features like custom button text.
+*WPFCustomMessageBox* is a WPF clone of the native Windows/.NET MessageBox with many extra features.
 
 ![WPFCustomMessageBox example screenshot](http://i.stack.imgur.com/AQgEj.png)
 
@@ -56,16 +56,19 @@ The WPFCustomMessageBox library provides customizable equivalents of all .NET Me
 * `CustomMessageBox.ShowOKCancel()` - MessageBox with customizable "OK" and "Cancel" buttons. Returns either `MessageBoxResult.OK` or `MessageBoxResult.Cancel`.
 * `CustomMessageBox.ShowYesNo()` - MessageBox with customizable "Yes" and "No" buttons. Returns either `MessageBoxResult.Yes` or `MessageBoxResult.No`.
 * `CustomMessageBox.ShowYesNoCancel()` - MessageBox with customizable "Yes", "No", and "Cancel" buttons. Returns either `MessageBoxResult.Yes`, `MessageBoxResult.No`, or `MessageBoxResult.Cancel`.
+* `CustomMessageBox.ShowRetryCancel()` - MessageBox with customizable "Retry", and "Cancel" buttons. Returns either `MessageBoxResult.Retry`, `MessageBoxResult.Cancel`.
+* `CustomMessageBox.ShowAbortRetryIgnore()` - MessageBox with customizable "Abort", "Retry", and "Ignore" buttons. Returns either `MessageBoxResult.Abort`, `MessageBoxResult.Retry`, or `MessageBoxResult.Ignore`.
 
-## Todo ##
+**MessageBoxModel**
 
-* i18n support (especially for languages that read right-to-left)
+If more customization or access to the 
+
 
 ## License ##
 
 **The MIT License**
 
-Copyright (c) 2013 Evan Wondrasek / Apricity Software LLC
+Copyright (c) 2023 Kai Clemens Liebich / Evan Wondrasek
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
