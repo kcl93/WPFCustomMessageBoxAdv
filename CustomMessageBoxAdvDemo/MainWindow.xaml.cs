@@ -109,7 +109,7 @@ namespace CustomMessageBoxDemo
             };
             var task = msgBox.Show();
 
-            while (task.Status == TaskStatus.Running)
+            while (task.IsCompleted == false)
             {
                 msgBox.Message = $"This message box is open since {(int)stopwatch.Elapsed.TotalSeconds}s";
                 msgBox.Caption = $"Open since {(int)stopwatch.Elapsed.TotalSeconds}s";
