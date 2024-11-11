@@ -117,7 +117,7 @@ namespace WPFCustomMessageBoxAdv
                 this.OnPropertyChanged(nameof(this.IgnoreButtonCaption));
             }
         }
-        private string ignoreButtonCaption = "Retry";
+        private string ignoreButtonCaption = "Ignore";
 
         #endregion
 
