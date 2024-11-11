@@ -17,7 +17,7 @@
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/kcl93/WPFCustomMessageBoxAdv</RepositoryUrl>
 		<SignAssembly>False</SignAssembly>
-		<Version>1.0.2</Version>
+		<Version>1.0.3</Version>
 		<Title>WPFCustomMessageBoxAdv</Title>
 		<Authors>Kai Clemens Liebich forked from Evan Wondrasek</Authors>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
