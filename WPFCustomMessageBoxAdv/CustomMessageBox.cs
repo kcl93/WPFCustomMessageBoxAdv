@@ -144,7 +144,7 @@ namespace WPFCustomMessageBoxAdv
         /// <param name="yesButtonText">A System.String that specifies the text to display within the Yes button.</param>
         /// <param name="noButtonText">A System.String that specifies the text to display within the No button.</param>
         /// <param name="cancelButtonText">A System.String that specifies the text to display within the Cancel button.</param>
-        /// <param name="caption">(Default = "Message") A System.String that specifies the title bar caption to display.</param>v
+        /// <param name="caption">(Default = "Message") A System.String that specifies the title bar caption to display.</param>
         /// <param name="icon">(Default = MessageBoxIcon.None) A System.Windows.MessageBoxIcon value that specifies the icon to display.</param>
         /// <param name="owner">A System.Windows.Window that represents the owner window of the message box.</param>
         /// <returns>A System.Windows.Form.DialogResult value that specifies which message box button is clicked by the user.</returns>
@@ -173,7 +173,7 @@ namespace WPFCustomMessageBoxAdv
         /// <param name="abortButtonText">A System.String that specifies the text to display within the Abort button.</param>
         /// <param name="retryButtonText">A System.String that specifies the text to display within the Retry button.</param>
         /// <param name="ignoreButtonText">A System.String that specifies the text to display within the Ignore button.</param>
-        /// <param name="caption">(Default = "Message") A System.String that specifies the title bar caption to display.</param>v
+        /// <param name="caption">(Default = "Message") A System.String that specifies the title bar caption to display.</param>
         /// <param name="icon">(Default = MessageBoxIcon.None) A System.Windows.MessageBoxIcon value that specifies the icon to display.</param>
         /// <param name="owner">A System.Windows.Window that represents the owner window of the message box.</param>
         /// <returns>A System.Windows.Form.DialogResult value that specifies which message box button is clicked by the user.</returns>

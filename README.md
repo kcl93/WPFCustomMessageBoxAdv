@@ -13,7 +13,7 @@ The WPFCustomMessageBoxAdv message boxes return [standard .NET DialogResults](ht
 
 ## Usage ##
 
-This documentation is still in progress, so in the meantime you can explore the `CustomMessageBoxDemo` project which should have a variety of demos.
+This documentation is still in progress, so in the meantime you can explore the `CustomMessageBoxAdvDemo` project which should have a variety of demos.
 
 WPFCustomMessageBoxAdv uses static methods just like the standard .NET MessageBox, so you can plug-and-play the new library without modifying any code. When you want to add custom text, just use the special methods outlined below.
 
@@ -40,9 +40,9 @@ using WPFCustomMessageBoxAdv;
 
 CustomMessageBox.ShowOKCancel(
     "Are you sure you want to eject the nuclear fuel rods?",
-    "Confirm Fuel Ejection",
     "Eject Fuel Rods",
-    "Don't do it!");
+    "Don't do it!",
+    "Confirm Fuel Ejection");
 ```
 
 **Custom Button Methods**
@@ -59,13 +59,14 @@ The WPFCustomMessageBoxAdv library provides customizable equivalents of all .NET
 
 **MessageBoxModel**
 
-For maximum customization or live access to the message box while it is open (e.g. to update the displayed text), the class MessageBoModel can be used.
+For maximum customization or live access to the message box while it is open (e.g. to update the displayed text), the class MessageBoxModel can be used.
 It allows to updates various widths and heights of UI components, button texts and much more.
 
-**Removed features/changes compared to WPFCustomMessageBoxAdv**
+**Removed features/changes compared to WPFCustomMessageBox**
 
 * Removed support for keyboard accelerators
-* System.Windows.Forms.MessageBox is being used for reference instead of System.Windows.MessageBox (more button options available by default)s
+* System.Windows.Forms.MessageBox is being used for reference instead of System.Windows.MessageBox (more button options available by default)
+* No `UseWPF`/`UseWindowsForms` needed in the consuming project; the required framework references come with the package
 
 
 ## License ##

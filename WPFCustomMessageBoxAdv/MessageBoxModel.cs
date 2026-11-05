@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace WPFCustomMessageBoxAdv
 {
@@ -156,7 +157,7 @@ namespace WPFCustomMessageBoxAdv
         }
 
         /// <summary>
-        /// Minimum button height (default = 26)
+        /// Maximum button height (default = 80)
         /// </summary>
         public double MaxButtonHeight
         {
@@ -363,9 +364,9 @@ namespace WPFCustomMessageBoxAdv
         /// </summary>
         public DialogResult Result { get; private set; } = DialogResult.None;
 
-        private event Action RequestClosingEvent;
+        private volatile CustomMessageBoxView view;
 
-        private ManualResetEvent WindowClosedEvent { get; } = new ManualResetEvent(true);
+        private volatile bool closeRequested;
 
         private CustomMessageBoxViewModel ViewModel { get; }
 
@@ -405,22 +406,42 @@ namespace WPFCustomMessageBoxAdv
 
         /// <summary>
         /// Displays a message box that is defined by the properties of this class.
-        /// In case the current thread is not a STA thread already,
+        /// If an owner is set, the message box is displayed on the owner's thread.
+        /// Otherwise, in case the current thread is not a STA thread already,
         /// a new STA thread is being created and the MessageBox is being displayed from there.
         /// This method is blocking until user input.
         /// </summary>
         /// <returns></returns>
         public DialogResult ShowDialog()
         {
+            this.Result = DialogResult.None;
+            this.closeRequested = false;
             this.ConfigureViewModel();
 
-            if (Thread.CurrentThread.GetApartmentState() == ApartmentState.STA)
+            var owner = this.Owner;
+            if (owner != null)
+            {
+                // A window can only be owned by a window living on the same thread
+                if (owner.Dispatcher.CheckAccess())
+                {
+                    this.ShowDialogSTA();
+                }
+                else
+                {
+                    owner.Dispatcher.Invoke(this.ShowDialogSTA);
+                }
+            }
+            else if (Thread.CurrentThread.GetApartmentState() == ApartmentState.STA)
             {
                 this.ShowDialogSTA();
             }
             else
             {
-                var thread = new Thread(this.ShowDialogSTA);
+                var thread = new Thread(() =>
+                {
+                    this.ShowDialogSTA();
+                    Dispatcher.CurrentDispatcher.InvokeShutdown();
+                });
                 thread.SetApartmentState(ApartmentState.STA);
                 thread.Start();
                 thread.Join();
@@ -444,8 +465,21 @@ namespace WPFCustomMessageBoxAdv
         /// </summary>
         public void Close()
         {
-            this.RequestClosingEvent.Invoke();
-            this.WindowClosedEvent.WaitOne();
+            var msg = this.view;
+            if (msg == null)
+            {
+                return;
+            }
+
+            this.closeRequested = true;
+            if (msg.Dispatcher.CheckAccess())
+            {
+                msg.Close();
+            }
+            else
+            {
+                msg.Dispatcher.Invoke(msg.Close);
+            }
         }
 
         private void ShowDialogSTA()
@@ -464,21 +498,37 @@ namespace WPFCustomMessageBoxAdv
             {
                 msg.YesButton.Focus();
             }
-
-            this.RequestClosingEvent = null;
-            this.RequestClosingEvent += new Action(() =>
+            else if (this.ViewModel.AbortButtonVisibility == Visibility.Visible)
             {
-                msg?.Close();
-                msg = null;
-            });
+                msg.AbortButton.Focus();
+            }
+            else if (this.ViewModel.RetryButtonVisibility == Visibility.Visible)
+            {
+                msg.RetryButton.Focus();
+            }
 
+            this.view = msg;
             msg.ShowDialog();
         }
 
         private void ConfigureViewModel()
         {
-            // Set Icon
-            this.ViewModel.CustomIcon = this.CustomIcon ?? MessageBoxModel.IconLookup[this.Icon]?.ToImageSource();
+            // Set Icon (must be frozen, as the window may be shown on a different thread)
+            var icon = this.CustomIcon ?? MessageBoxModel.IconLookup[this.Icon]?.ToImageSource();
+            if ((icon != null) && !icon.IsFrozen && icon.CanFreeze && icon.CheckAccess())
+            {
+                icon = (ImageSource)icon.GetAsFrozen();
+            }
+            this.ViewModel.CustomIcon = icon;
+
+            // Reset buttons in case this model is shown more than once
+            this.ViewModel.OkButtonVisibility = Visibility.Collapsed;
+            this.ViewModel.CancelButtonVisibility = Visibility.Collapsed;
+            this.ViewModel.NoButtonVisibility = Visibility.Collapsed;
+            this.ViewModel.YesButtonVisibility = Visibility.Collapsed;
+            this.ViewModel.AbortButtonVisibility = Visibility.Collapsed;
+            this.ViewModel.RetryButtonVisibility = Visibility.Collapsed;
+            this.ViewModel.IgnoreButtonVisibility = Visibility.Collapsed;
 
             // Set buttons
             switch (this.Buttons)
@@ -524,7 +574,20 @@ namespace WPFCustomMessageBoxAdv
 
         private void MessageBoxClosed(object sender, EventArgs e)
         {
-            this.WindowClosedEvent.Set();
+            this.view = null;
+
+            // Closed via the title bar: mimic System.Windows.Forms.MessageBox
+            if ((this.Result == DialogResult.None) && !this.closeRequested)
+            {
+                if (this.ViewModel.CancelButtonVisibility == Visibility.Visible)
+                {
+                    this.Result = DialogResult.Cancel;
+                }
+                else if (this.Buttons == MessageBoxButtons.OK)
+                {
+                    this.Result = DialogResult.OK;
+                }
+            }
         }
 
         #endregion
